@@ -1,0 +1,385 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC
+	"-//Apache Software Foundation//DTD Struts Configuration 2.3//EN"
+	"http://struts.apache.org/dtds/struts-2.3.dtd">
+
+<struts>
+	<constant name="struts.enable.DynamicMethodInvocation" value="true" />
+
+	<package name="user" namespace="/user" extends="json-default">
+	
+		<action name="LoginPage" class="com.ccl.action.user.LoginPageAction">
+			<result name="success" type="redirect">/login.jsp</result>
+		</action>
+		
+		<action name="Login" class="com.ccl.action.user.LoginAction">
+			<result name="success" type="redirect">/index.jsp</result>
+			<result name="input"  >/login.jsp</result>
+		</action>
+		
+		<action name="Logout" class="com.ccl.action.user.LogoutAction">
+			<result name="success" type="redirect">/index.jsp</result>
+		</action>
+		
+		<action name="UserPersonal" class="com.ccl.action.user.UserPersonalAction">
+			<result name="success">/personal.jsp</result>
+		</action>
+		
+		<action name="UserProfile" class="com.ccl.action.user.UserProfileAction">
+			<result name="success">/personal.jsp</result>
+			<result name="input">/personal.jsp</result>
+		</action>
+		
+		<action name="UserChangePassword" class="com.ccl.action.user.UserChangePasswordAction" >
+			<result type="json">
+				<param name="root">result</param>
+			</result>
+		</action>
+		
+		<action name="UserRegister" class="com.ccl.action.user.UserRegisterAction" >
+			<result type="json">
+				<param name="root">result</param>
+			</result>
+		</action>
+		
+		<action name="UserBatchRegister" class="com.ccl.action.user.UserBatchRegisterAction" >
+			<result type="json">
+				<param name="root">result</param>
+			</result>
+		</action>
+		
+		<action name="UserShowAllTeacher" class="com.ccl.action.user.UserShowAllTeacherAction" >
+			<result type="json">
+				<param name="root">result</param>
+			</result>
+		</action>
+		
+		<action name="UserSearchTeacher" class="com.ccl.action.user.UserSearchTeacherAction" >
+			<result type="json">
+				<param name="root">result</param>
+			</result>
+		</action>
+		
+		<action name="UserChangeAuthority" class="com.ccl.action.user.UserChangeAuthorityAction" >
+			<result type="json">
+				<param name="root">result</param>
+			</result>
+		</action>
+		
+		<action name="UserDel" class="com.ccl.action.user.UserDelAction" >
+			<result type="json">
+				<param name="root">result</param>
+			</result>
+		</action>
+	</package>
+	
+	<package name="semester" namespace="/semester" extends="json-default">
+	
+		<action name="GetSemester" class="com.ccl.action.semester.GetSemesterAction" >
+			<result type="json">
+				<param name="root">result</param>
+			</result>
+		</action>
+		
+		<action name="AddSemester" class="com.ccl.action.semester.AddSemesterAction" >
+			<result type="json">
+				<param name="root">result</param>
+			</result>
+		</action>
+		
+	</package>
+	
+	<package name="course" namespace="/course" extends="json-default">
+
+		<action name="CoursePage" class="com.ccl.action.course.CoursePageAction" >
+			<result name="success">/course_manage.jsp</result>
+		</action>	
+		
+		<action name="GetUnscheduledCourse" class="com.ccl.action.course.GetUnscheduledCourseAction" >
+			<result type="json">
+				<param name="root">result</param>
+			</result>
+		</action>
+		
+		<action name="AddCourse" class="com.ccl.action.course.AddCourseAction" >
+			<result type="json">
+				<param name="root">result</param>
+			</result>
+		</action>
+
+		<action name="DelCourse" class="com.ccl.action.course.DelCourseAction" >
+			<result type="json">
+				<param name="root">result</param>
+			</result>
+		</action>		
+	</package>
+	
+	
+	<package name="schedule" namespace="/schedule" extends="json-default">
+	
+		<action name="SchedulePage" class="com.ccl.action.schedule.SchedulePageAction">
+			<result name="success">/schedule.jsp</result>
+		</action>
+
+		<action name="AddSchedule" class="com.ccl.action.schedule.AddScheduleAction" >
+			<result type="json">
+				<param name="root">result</param>
+			</result>
+		</action>
+		
+		<action name="GetScheduledCourses" class="com.ccl.action.schedule.GetScheduledCoursesAction" >
+			<result type="json">
+				<param name="root">result</param>
+			</result>
+		</action>	
+		
+		<action name="DelSchedule" class="com.ccl.action.schedule.DelScheduleAction" >
+			<result type="json">
+				<param name="root">result</param>
+			</result>
+		</action>
+	</package>
+	
+	<package name="notice" namespace="/notice" extends="json-default">
+		
+		<action name="GetMyNotice" class="com.ccl.action.notice.GetMyNoticeAction" >
+			<result type="json">
+				<param name="root">result</param>
+			</result>
+		</action>
+		
+	</package>
+	
+	<package name="mycourse" namespace="/mycourse" extends="json-default">
+	
+		<action name="TeacherMyCourse" class="com.ccl.action.mycourse.TeacherMyCourseAction">
+			<result name="success">/teacher_mycourse.jsp</result>
+		</action>
+
+		<action name="StudentMyCourse" class="com.ccl.action.mycourse.StudentMyCourseAction" >
+			<result name="success">/student_mycourse.jsp</result>
+		</action>
+		
+		<action name="GetExcel" class="com.ccl.action.mycourse.GetExcelAction" >
+			<result type="json">
+				<param name="root">result</param>
+			</result>
+		</action>
+		
+	</package>
+	
+	<package name="coursedetail" namespace="/coursedetail" extends="json-default">
+	
+		<action name="CourseDetailPage" class="com.ccl.action.coursedetail.CourseDetailPageAction">
+			<result name="success">/course_detail.jsp</result>
+		</action>
+		
+	</package>
+	
+
+	
+	<package name="teachcourse" namespace="/teachcourse" extends="json-default">
+	
+		<action name="AssistManagePage" class="com.ccl.action.teachcourse.AssistManagePageAction">
+			<result name="success">/assist_manage.jsp</result>
+		</action>	
+		
+		<action name="SelectionManagePage" class="com.ccl.action.teachcourse.SelectionManagePageAction">
+			<result name="success">/selection_manage.jsp</result>
+		</action>
+				
+		<action name="GetAssistedStudent" class="com.ccl.action.teachcourse.GetAssistedStudentAction" >
+			<result type="json">
+				<param name="root">result</param>
+			</result>
+		</action>
+
+		<action name="GetSelectedStudent" class="com.ccl.action.teachcourse.GetSelectedStudentAction" >
+			<result type="json">
+				<param name="root">result</param>
+			</result>
+		</action>
+
+		<action name="GetStudentToAssist" class="com.ccl.action.teachcourse.GetStudentToAssistAction" >
+			<result type="json">
+				<param name="root">result</param>
+			</result>
+		</action>
+
+		<action name="GetStudentToSelect" class="com.ccl.action.teachcourse.GetStudentToSelectAction" >
+			<result type="json">
+				<param name="root">result</param>
+			</result>
+		</action>
+		
+		<action name="AddAssist" class="com.ccl.action.teachcourse.AddAssistAction" >
+			<result type="json">
+				<param name="root">result</param>
+			</result>
+		</action>
+
+		<action name="AddSelection" class="com.ccl.action.teachcourse.AddSelectionAction" >
+			<result type="json">
+				<param name="root">result</param>
+			</result>
+		</action>
+
+		<action name="BatchSelection" class="com.ccl.action.teachcourse.BatchSelectionAction" >
+			<result type="json">
+				<param name="root">result</param>
+			</result>
+		</action>
+
+		<action name="DelAssist" class="com.ccl.action.teachcourse.DelAssistAction" >
+			<result type="json">
+				<param name="root">result</param>
+			</result>
+		</action>
+		
+		<action name="DelSelection" class="com.ccl.action.teachcourse.DelSelectionAction" >
+			<result type="json">
+				<param name="root">result</param>
+			</result>
+		</action>
+	</package>
+	
+	
+	
+	
+	<package name="assignment" namespace="/assignment" extends="json-default">
+	
+		<action name="AssignmentsPage" class="com.ccl.action.assignment.AssignmentsPageAction">
+			<result name="teacher">/assignment_teacher.jsp</result>
+			<result name="student">/assignment_student.jsp</result>
+			<result name="assist">/assignment_assist.jsp</result>
+		</action>	
+		
+		<action name="AssignmentsIndependentPage" class="com.ccl.action.assignment.AssignmentsIndependentPageAction">
+			<result name="success">/assignment_independent.jsp</result>
+		</action>	
+
+		
+		<action name="AddAssignment" class="com.ccl.action.assignment.AddAssignmentAction" >
+			<result type="json">
+				<param name="root">result</param>
+			</result>
+		</action>
+		
+		<action name="ImportAssignment" class="com.ccl.action.assignment.ImportAssignmentAction" >
+			<result type="json">
+				<param name="root">result</param>
+			</result>
+		</action>
+		
+		<action name="ImportAssignmentPage" class="com.ccl.action.assignment.ImportAssignmentPageAction">
+			<result name="success">/assignment_import.jsp</result>
+		</action>
+
+		<action name="DelAssignment" class="com.ccl.action.assignment.DelAssignmentAction" >
+			<result type="json">
+				<param name="root">result</param>
+			</result>
+		</action>
+
+		<action name="GetAssignments" class="com.ccl.action.assignment.GetAssignmentsAction" >
+			<result type="json">
+				<param name="root">result</param>
+			</result>
+		</action>
+		
+		<action name="GetAssignmentsToImport" class="com.ccl.action.assignment.GetAssignmentsToImportAction" >
+			<result type="json">
+				<param name="root">result</param>
+			</result>
+		</action>
+		
+		<action name="GetRecommendAssignments" class="com.ccl.action.assignment.GetRecommendAssignmentsAction" >
+			<result type="json">
+				<param name="root">result</param>
+			</result>
+		</action>
+		
+		<action name="DownloadAssignments" class="com.ccl.action.assignment.DownloadAssignmentsAction" >
+			<result type="json">
+				<param name="root">result</param>
+			</result>
+		</action>
+		
+		<action name="GetSubmissionInfo" class="com.ccl.action.assignment.GetSubmissionInfoAction" >
+			<result type="json">
+				<param name="root">result</param>
+			</result>
+		</action>
+
+		<action name="UploadSubmission" class="com.ccl.action.assignment.UploadSubmissionAction" >
+			<result type="json">
+				<param name="root">result</param>
+			</result>
+		</action>	
+
+		<action name="UploadDirection" class="com.ccl.action.assignment.UploadDirectionAction" >
+			<result type="json">
+				<param name="root">result</param>
+			</result>
+		</action>	
+
+		<action name="UploadReview" class="com.ccl.action.assignment.UploadReviewAction" >
+			<result type="json">
+				<param name="root">result</param>
+			</result>
+		</action>	
+
+		<action name="MarksPage" class="com.ccl.action.assignment.MarksPageAction">
+			<result name="success">/mark.jsp</result>
+		</action>		
+		
+		<action name="MarksApprovePage" class="com.ccl.action.assignment.MarksApprovePageAction">
+			<result name="success">/mark_approve.jsp</result>
+		</action>
+		
+			<action name="MarksLookPage" class="com.ccl.action.assignment.MarksLookPageAction">
+			<result name="success">/mark_look.jsp</result>
+		</action>
+		
+		<action name="SubmitMark" class="com.ccl.action.assignment.SubmitMarkAction">
+			<result type="json">
+				<param name="root">result</param>
+			</result>
+		</action>
+		
+		<action name="ApproveReport" class="com.ccl.action.assignment.ApproveReportAction">
+			<result name="success">/assignment_teacher.jsp</result>
+		</action>		
+		
+		<action name="SubmitReport" class="com.ccl.action.assignment.SubmitReportAction" >
+			<result type="json">
+				<param name="root">result</param>
+			</result>
+		</action>
+		
+
+		
+	</package>
+	
+	<package name="statistics" namespace="/statistics" extends="json-default">
+		<action name="GetStatistics" class="com.ccl.action.statistics.GetStatisticsAction">
+			<result type="json">
+				<param name="root">result</param>
+			</result>
+		</action>
+	</package>
+	
+	<package name="download" namespace="/download" extends="json-default">        
+       <action name="FileDownload" class="com.ccl.action.download.FileDownloadAction">  
+           <result name="success" type="stream">  
+               <param name="contentType">text/plain</param>  
+               <param name="contentDisposition">attachment;fileName="${fileName}"</param>  
+               <param name="inputName">downloadFile</param>  
+               <param name="bufferSize">1024</param>  
+           </result>  
+       </action>  
+     
+   </package>  
+
+</struts>
+
